@@ -1,7 +1,7 @@
 # TaskManager
 
 Для разработки использовались:
-MS SQL Server 15.0.2000.5
+MS SQL Server 15.0.2000.5,
 Microsoft Visual Studio 2019 Version 16.9.4
 
 Для запуска проекта:
