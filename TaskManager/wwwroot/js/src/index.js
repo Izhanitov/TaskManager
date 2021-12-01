@@ -72,8 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //Получение ключа (номера) задачи
     const GetKey = (selector) => selector.getAttribute("key");
     
-    //const mainUrl = `${document.location.origin}/Home`;   
-    const mainUrl = `https://localhost:44385/Home`; 
+    const mainUrl = `${document.location.origin}/Home`;   
     const sendService = new SendService(mainUrl);
    
     //Панель статусов    
