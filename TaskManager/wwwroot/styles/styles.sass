@@ -1,0 +1,266 @@
+@mixin tree_menu_btn
+    width: 25px
+    height: 25px
+    border: none
+    background: transparent
+    font-weight: 900
+    font-size: 15pt
+    color: cadetblue
+
+@mixin block_headers
+    color: #7F89A1
+    font-weight: 500
+
+@mixin main_color_theme
+    background-color: #8dcdcf
+    
+@mixin modal_preset
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%
+    height: 100%
+    outline: 0
+
+@mixin hover_buttons
+    font-weight: 500
+    color: #324C8C
+ 
+
+header    
+    @include main_color_theme
+    @media (max-width: 767px)
+        height: 45px
+
+    h1
+        margin-left: 312px
+        font-size: 16pt
+        padding-top: 7px
+        color: white
+
+footer   
+    @include main_color_theme
+    @media (max-width: 767px)
+        height: 45px 
+
+@media (min-width: 768px)
+    @media (max-height: 379px)
+        .main_area
+            height: 299px
+        header
+            height: 40px
+        footer
+            height: 40px
+
+
+    @media (min-height: 380px)
+        .main_area
+            height: 82vh
+        header
+            height: 9vh
+        footer
+            height: 9vh
+
+
+    @media (min-height: 480px)
+        .main_area
+            height: 84vh
+        header
+            height: 8vh
+        footer
+            height: 8vh
+
+
+    @media (min-height: 580px)
+        .main_area
+            height: 86vh
+        header
+            height: 7vh
+        footer
+            height: 7vh
+ 
+
+    @media (min-height: 680px)
+        .main_area
+            height: 88vh
+        header
+            height: 6vh
+        footer
+            height: 6vh
+
+
+    @media (min-height: 780px)
+        .main_area
+            height: 90vh
+        header
+            height: 5vh
+        footer
+            height: 5vh
+
+
+
+        
+.tree_menu    
+    overflow-y: scroll
+    background-color: #f0f2f342
+    border-left: 2px solid #e1e1e1
+    border-right: 2px solid #e1e1e1
+    @media (max-width: 767px)
+        height: 400px
+
+.tree_title
+    padding: 5px 0px 5px 19px
+    @include block_headers
+
+.tree_control_panel
+    margin: 0px 2px
+    border-bottom: 2px solid #82AC85
+
+.main_area    
+    overflow-y: scroll
+    @media (max-width: 767px)
+        overflow-y: hidden
+
+.task_viewer
+    @media (max-width: 767px)
+        min-height: 437px
+    &_header
+        padding-bottom: 5px 
+        border-bottom: 4px solid #8dcdcf
+        div 
+            @include block_headers
+
+.selected_task
+    padding: 5px 0px
+
+.task_editor
+    padding: 5px 0px
+
+.task_list
+    margin-top: 7px
+    position: relative
+    background-color: #f1f1f182 
+    border-radius: 10px       
+
+.separator
+    border-bottom: 2px dashed #f0f2f3
+
+.listElem
+    display: inline
+    cursor: pointer
+    &:hover
+        @include hover_buttons
+
+.hidden
+    display: none
+
+.child_node
+    margin-left: 10px
+
+.child_button
+    visibility: hidden
+
+.btn_expand
+    @include tree_menu_btn
+    &:hover
+        @include hover_buttons
+
+.btn_add
+    @include tree_menu_btn
+    &:hover
+        @include hover_buttons
+
+.btn_refresh
+    @include tree_menu_btn        
+    &:hover
+        @include hover_buttons
+
+.modal 
+    @include modal_preset
+    &_form
+        background-color: white
+        z-index: 1000
+    &_content
+        padding: 15px
+    &_header
+        @include main_color_theme
+        padding: 5px 0px 5px 16px   
+    &_title
+        display: inline-block
+        color: white
+        font-weight: 500   
+    &_close
+        color: white
+        font-weight: 500    
+        width: 27px
+        height: 27px
+        border: none
+        background: transparent
+        margin-left: 353px
+    &_accept_cancel
+        display: flex
+        justify-content: center
+    &_input
+        width: 500px
+        height: 30px
+        margin-bottom: 6px
+    &_desc_input
+        width: 500px
+        height: 100px
+
+.open_modal
+    display: flex
+    align-items: center
+    justify-content: center
+    background-color: #908f958c
+
+.mini_modal
+    @include modal_preset
+
+.wrong_input
+    outline: #ff1818e0 solid 2px
+
+.disabled
+    cursor: not-allowed
+    pointer-events: none
+    background: lightslategray
+
+.status_panel
+    margin-top: 5px
+    margin-bottom: 10px
+
+    button
+        width: 130px
+        height: 28px
+        &:hover
+            @include hover_buttons
+
+    .start
+        color: forestgreen
+        font-weight: 500
+
+    .pause
+        color: orange
+        font-weight: 500
+
+    .stop
+        color: red
+        font-weight: 500
+
+.button_panel
+    border-radius: 4px
+    &:hover
+        @include hover_buttons
+
+.subtasks_list
+    font-size: 10pt
+
+.subtasks_panel
+    padding-top: 10px
+    &_header
+        @include block_headers
+        padding-bottom: 5px 
+        border-bottom: 4px solid #8dcdcf
+
+    
+        

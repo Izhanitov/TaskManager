@@ -1,0 +1,210 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link type="text/css" href="~/styles/bootstrap.css" rel="stylesheet" />    
+    <link href="~/styles/styles.css" rel="stylesheet" type="text/css">
+    <script src="~/js/dist/js/bundle.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Управление задачами</h1>
+    </header>
+    <div class="container">
+        <div class="row main_area">
+            <div class="col-12 col-md-3 tree_menu">
+                <div data-menu-panel class="row tree_control_panel">
+                    <div class="col-12 col-lg-7 col-xl-7 col-xxl-6 tree_title">Список задач:</div>
+                    <div class="col-12 col-lg-5 col-xl-5 col-xxl-6">
+                        <button class="btn_refresh">↻</button>
+                        <button class="btn_add">+</button>
+                    </div>
+                </div>
+                <div class="task_list">
+
+                </div>
+            </div>
+            <div class="col-12 col-md-9 main_area_task_view">
+                <div class="task_viewer">
+                    <div class="task_viewer_header">
+                        <div height="25px">Выбранная задача</div>
+                        <div data-button-panel>
+                            <button data-delete-task class="button_panel disabled">Удалить</button>
+                            <button data-add-subtask class="button_panel disabled">Добавить подзадачу</button>
+                            <button data-edit-task class="button_panel disabled">Редактировать</button>
+                            <button data-save-task class="button_panel disabled">Сохранить</button>
+                            <button data-cancel-changes class="button_panel disabled">Отмена</button>
+                        </div>
+                    </div>
+                    <div class="status_bar">Выберите задачу из списка</div>
+                    <div class="selected_task hidden">
+                        <div data-selected-task key="" class="row">
+                            <div class="col-12 col-lg-2">Наименование:</div>
+                            <div class="col-12 col-lg-10" data-sel-taskName></div>
+                            <div class="col-12 separator"></div>
+                            <div class="col-12 col-lg-2">Описание:</div>
+                            <div class="col-12 col-lg-10" data-sel-taskDescription></div>
+                            <div class="col-12 separator"></div>
+                            <div class="col-12 col-lg-2">Исполнитель:</div>
+                            <div class="col-12 col-lg-10" data-sel-taskPerformer></div>
+                            <div class="col-12 separator"></div>
+                            <div class="col-12 col-lg-2">Дата регистрации:</div>
+                            <div class="col-12 col-lg-10" data-sel-taskRegDate></div>
+                            <div class="col-12 separator"></div>
+
+                            <div class="col-12">
+                                Отведенное время:
+                                <div class="row">
+                                    <div class="col-2">Задачи</div>
+                                    <div class="col-2">Подзадач</div>
+                                    <div class="col-2">Суммарно</div>
+                                    <div class="col-12 separator"></div>
+                                    <div class="col-2" data-sel-estimateSubTasks></div>
+                                    <div class="col-2" data-sel-estimate></div>
+                                    <div class="col-2" data-sel-estimateSummary></div>
+                                    <div class="col-12 separator"></div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                Фактическое время:
+                                <div class="row">
+                                    <div class="col-2">Задачи</div>
+                                    <div class="col-2">Подзадач</div>
+                                    <div class="col-2">Суммарно</div>
+                                    <div class="col-12 separator"></div>
+                                    <div class="col-2" data-sel-factualEstimate></div>
+                                    <div class="col-2" data-sel-factualSubtasks></div>
+                                    <div class="col-2" data-sel-factualSummary></div>
+                                    <div class="col-12 separator"></div>
+                                </div>
+                            </div>
+
+                            <div class="col-2">Статус задачи:</div>
+                            <div class="col-10" data-sel-taskStatusName></div>
+                            <div class="col-12 separator"></div>
+                            <div data-ended-panel class="row">
+                                <div class="col-2">Дата завершения:</div>
+                                <div class="col-10" data-sel-completeddate></div>
+                                <div class="col-12 separator"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="task_editor">
+                        <div class="row hidden" data-edit-panel key="">
+                            <div class="col-3">Наименование:</div>
+                            <div class="col-9">
+                                <input name="updateName" class="modal_input" value="x">
+                            </div>
+                            <div class="col-3">Описание:</div>
+                            <div class="col-9">
+                                <textarea name="updateDescription" class="modal_desc_input">X</textarea>
+                            </div>
+                            <div class="col-3">Исполнитель:</div>
+                            <div class="col-9">
+                                <input name="updatePerformer" class="modal_input" value="x">
+                            </div>
+                            <div class="col-3">Отведенное время:</div>
+                            <div class="col-9">
+                                <input name="updateEstimate" class="modal_input" value="x">
+                            </div>
+                            <div class="col-3">Фактическое время:</div>
+                            <div class="col-9">
+                                <input name="updateFactual" class="modal_input" value="x"></input>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div data-status-panel class="status_panel hidden">
+                        <button data-status-begin class="start">Начать</button>
+                        <button data-status-pause class="pause">Приостановить</button>
+                        <button data-status-resume class="start">Возобновить</button>
+                        <button data-status-end class="stop">Завершить</button>
+                    </div>
+                    <div data-subtasks-panel class="subtasks_panel hidden">
+                        <div class="subtasks_panel_header">Подзадачи:</div>
+                        <div class="row subtasks_list">
+                            <div class="col-lg-3">Наименование</div>
+                            <div class="col-lg-2">Исполнитель</div>
+                            <div class="col-lg-2">Статус</div>
+
+                            <div class="col-lg-5">
+                                <div>Время выполнение задачи</div>
+                                <div class="row">
+                                    <div class="col-12 separator"></div>
+                                    <div class="col-lg-3">Отвед. задачи</div>
+                                    <div class="col-lg-3">Отвед. подзадач</div>
+                                    <div class="col-lg-3">Факт. задачи</div>
+                                    <div class="col-lg-3">Факт. подзадач</div>
+                                </div>
+                            </div>
+                            <div class="col-12 separator"></div>
+                            <div data-task-childs></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal">
+        <div class="modal_form">
+            <div class="modal_header">
+                <div>
+                    <div class="modal_title">title</div>
+                    <button class="modal_close">
+                        X
+                    </button>
+                </div>
+            </div>
+            <div class="modal_content">
+                <div class="modal_input_table">
+                    <div>
+                        <input required placeholder="Наименование задачи" name="taskName" type="name" class="modal_input">
+                    </div>
+                    <div>
+                        <textarea required placeholder="Описание" name="taskDescription" type="desc" class="modal_desc_input"></textarea>
+                    </div>
+                    <div>
+                        <input required placeholder="Исполнитель" name="taskPerformer" type="" class="modal_input">
+                    </div>
+                    <div>
+                        <input required placeholder="Планируемое время выполнения" name="estimate" type="" class="modal_input">
+                    </div>
+                    <div>
+                        <input required placeholder="Родительский элемент" name="parent" type="" class="modal_input disabled">
+                    </div>
+                </div>
+                <div class="modal_accept_cancel">
+                    <button data-confirm class="disabled">Добавить</button><button data-cancel>Отмена</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mini_modal hidden">
+        <div class="modal_form">
+            <div class="modal_header">
+                <div class="modal_title">Завершение задачи</div>
+            </div>
+            <div class="modal_content">
+                <div>
+                    <input required placeholder="Фактическое время выполнения" name="factualEstimate" type="name" class="modal_input">
+                </div>
+                <div class="modal_accept_cancel">
+                    <button data-mini-confirm class="disabled">Добавить</button><button data-mini-cancel>Отмена</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer></footer>
+</body>
+</html>
